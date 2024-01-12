@@ -444,7 +444,7 @@ class CopyUtil(ScrapiBase):
         for entity in resources_objects["entities"]:
             logging.info("Creating Entity %s...", entity.display_name)
             try:
-                self.entities.create_entity_type(destination_agent, entity)
+                self.entities.create_entity_type(destination_agent, obj=entity)
                 resources_skip_list["entities"].append(entity.display_name)
                 logging.info(
                     "Entity %s created successfully.", entity.display_name
@@ -690,6 +690,7 @@ class CopyUtil(ScrapiBase):
           and route_groups, with keys missing if they were in the skip_list.
           Each value is a list of display names of created CX resources.
         """
+        
         resources_objects = defaultdict(list)
         resources_skip_list = defaultdict(list)
 
