@@ -226,12 +226,12 @@ class FulfillmentBuilder(BuildersCommon):
         # Type error checking
         if isinstance(parameter_map, dict):
             if not all((
-                isinstance(key, str) and isinstance(val, str)
-                for key, val in parameter_map.items()
+                isinstance(key, str)
+                for key in parameter_map.items()
             )):
                 raise ValueError(
                     "Only strings are allowed as"
-                    " dictionary keys and values in parameter_map."
+                    " dictionary keys in parameter_map."
                 )
             for param, val in parameter_map.items():
                 self.proto_obj.set_parameter_actions.append(
