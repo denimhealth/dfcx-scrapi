@@ -227,7 +227,7 @@ class FulfillmentBuilder(BuildersCommon):
         if isinstance(parameter_map, dict):
             if not all((
                 isinstance(key, str)
-                for key in parameter_map.keys()
+                for key, val in parameter_map.keys()
             )):
                 raise ValueError(
                     "Only strings are allowed as"
