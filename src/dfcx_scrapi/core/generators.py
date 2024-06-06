@@ -59,7 +59,7 @@ class Generators(scrapi_base.ScrapiBase):
     ) -> List[types.generator.Generator.Placeholder]:
         """Parse any placeholders from the prompt."""
         placeholders = []
-        pattern = r"\$(?:\s+)?([a-zA-Z0-9_]+)"
+        pattern = r"\$(?:\s+)?([a-zA-Z0-9_\-]+)"
         matches = re.findall(pattern, prompt)
         for match in matches:
             placeholder = types.generator.Generator.Placeholder()
